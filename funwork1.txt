@@ -1,0 +1,18 @@
+#Time ve tkinter(widget) kütüphanesini kullanarak basit bir detaylı takvim yaptım
+import time
+import tkinter
+from tkinter import ttk
+from tkinter import *
+from time import gmtime, strftime
+
+zaman = strftime("%d-%m-%Y %H:%M:%S", gmtime())
+ayrıntılıZaman = strftime("%j-%m(%b)-%u(%a)", gmtime())
+root = Tk()
+frm = ttk.Frame(root, padding=10)
+frm.grid()
+ttk.Label(frm, text= zaman).grid(column=1, row=0)
+ttk.Label(frm, text= "Gün-Ay-Yıl-Saat:").grid(column=0, row=0)
+ttk.Label(frm, text= ayrıntılıZaman).grid(column=1, row=1)
+ttk.Label(frm, text= "Yılın günü, ayı ve haftası(adı):").grid(column=0, row=1)
+ttk.Button(frm, text="Quit", command=root.destroy).grid(column=4, row=0)
+root.mainloop()
